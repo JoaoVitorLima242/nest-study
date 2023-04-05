@@ -10,7 +10,7 @@ import {
   Post,
 } from '@nestjs/common';
 
-import { CourseService } from 'src/services/course/course.service';
+import { CourseService } from './course.service';
 
 @Controller('courses')
 export class CoursesController {
