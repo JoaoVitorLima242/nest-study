@@ -8,9 +8,8 @@ import {
   Param,
   Patch,
   Post,
-  Res,
 } from '@nestjs/common';
-import { Response } from 'express';
+
 import { CourseService } from 'src/services/course/course.service';
 
 @Controller('courses')

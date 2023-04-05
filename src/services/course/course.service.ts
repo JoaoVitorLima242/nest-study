@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 import { Course } from 'src/types/courses';
 
@@ -18,7 +18,13 @@ export class CourseService {
   }
 
   findOne(id: string) {
-    return this.courses.find((item) => item.id === Number(id));
+    const course = this.courses.find((item) => item.id === Number(id));
+
+    if (!course) {
+      throw new HttpException(`Course #${id} not found`, HttpStatus.NOT_FOUND);
+    }
+
+    return course;
   }
 
   create(createCourseDto: any) {
