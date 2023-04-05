@@ -6,13 +6,15 @@ import {
   HttpStatus,
   Param,
   Post,
+  Res,
 } from '@nestjs/common';
+import { Response } from 'express';
 
 @Controller('courses')
 export class CoursesController {
   @Get()
-  findAll() {
-    return 'listagem de cursos';
+  findAll(@Res() res: Response) {
+    return res.status(200).send('list');
   }
 
   @Get(':id')
