@@ -29,7 +29,6 @@ export class CoursesController {
   }
 
   @Post('create')
-  @HttpCode(HttpStatus.NO_CONTENT)
   create(@Body() body: CreateCourseDto) {
     return this.coursesService.create(body);
   }
